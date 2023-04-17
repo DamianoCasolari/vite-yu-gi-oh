@@ -12,6 +12,7 @@ export default {
             store
 
         }
+
     }
 }
 </script>
@@ -19,10 +20,18 @@ export default {
 <template>
     <main>
         <div class="container-lg">
-            <div class="search_section">search</div>
+            <select class="form-select search_section">
+                <option value="Alien">Alien</option>
+                <option value="Umi">Umi</option>
+                <option value="NobleKnight">Noble Knight</option>
+            </select>
             <div class="main_section">
-                <div class="counter_card">{{ "Found " + store.cards.length + " cards" }} </div>
-                <div class="row row-cols-sm-2 row-cols-md-4 row-cols-xl-6 p-4">
+                <div v-if="!store.loaded" class="counter_card text-center">
+                    <div class="hourglass2">&#8987</div>
+                </div>
+                <div class="counter_card" v-else>{{ "Found " + store.cards.length + " cards" }}
+                </div>
+                <div v-if="store.loaded" class="row row-cols-sm-2 row-cols-md-4 row-cols-xl-6 p-4">
                     <MyCard :card="card" v-for="card in store.cards" />
                 </div>
             </div>

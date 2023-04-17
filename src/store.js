@@ -5,9 +5,7 @@ export const store = reactive({
     searchText: "",
     API_URL: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=24&offset=0',
     cards: null,
-    img: null,
-    name: null,
-    archetype: null,
+    loaded: false,
 
 
     fetchCards(url) {
@@ -15,7 +13,9 @@ export const store = reactive({
             .get(url)
             .then(response => {
                 this.cards = response.data.data
+                this.loaded = true
                 console.log(response.data.data);
+
             })
             .catch(err => {
                 console.log(err);
