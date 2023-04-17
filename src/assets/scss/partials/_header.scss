@@ -1,0 +1,27 @@
+@use "./variables" as *;
+
+header {
+    height: 100px;
+    display: flex;
+    background-color: $clr_total_light;
+    height: 100px;
+    align-items: center;
+    padding: 10px;
+
+    .img_container {
+        height: 100%;
+
+
+        img {
+            height: 100%;
+            width: 300px;
+            object-fit: cover;
+        }
+
+    }
+
+    h1 {
+        font-size: 40px;
+        color: $clr_counter;
+    }
+}
