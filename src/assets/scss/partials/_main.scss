@@ -1,0 +1,66 @@
+@use "./variables" as *;
+
+main {
+    background-color: $clr_primary;
+
+    .container-lg {
+
+        padding: 50px 30px;
+
+        .search_section {
+            height: 100;
+            margin-bottom: 30px;
+        }
+
+        .main_section {
+            background-color: $clr_total_light;
+
+            .counter_card {
+                background-color: $clr_counter;
+                color: $clr_total_light;
+                padding: 10px 10px;
+            }
+
+            .row {
+
+                .col {
+
+                    margin: 20px 0;
+
+
+
+                    .single_card {
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        flex-direction: column;
+                        border: 1px solid black;
+                        background-color: $clr_primary;
+                        padding: 10px 0;
+
+                        img {
+                            object-fit: contain;
+                            height: 200px;
+                            width: 100%;
+
+
+                        }
+
+                        .title {
+                            color: white;
+                            font-weight: bold;
+                            font-size: 16px;
+                        }
+
+
+
+                    }
+                }
+
+            }
+
+
+        }
+    }
+
+}

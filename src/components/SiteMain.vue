@@ -1,9 +1,17 @@
-
 <script>
+import MyCard from "./MyCard.vue";
+import { store } from "../store.js";
+
 export default {
     name: "SiteMain",
+    components: {
+        MyCard,
+    },
     data() {
-        return {}
+        return {
+            store
+
+        }
     }
 }
 </script>
@@ -11,19 +19,11 @@ export default {
 <template>
     <main>
         <div class="container-lg">
-            <div class="search_section"></div>
+            <div class="search_section">search</div>
             <div class="main_section">
-                <div class="counter_card"></div>
-                <div class="row">
-                    <div class="col">
-                        <div class="single_card">
-                            <div class="img_container">
-                                <img src="" alt="">
-                            </div>
-                            <h3>Lorem ipsum dolor sit.</h3>
-                            <h4>Lorem, ipsum dolor.</h4>
-                        </div>
-                    </div>
+                <div class="counter_card">{{ "Found " + store.cards.length + " cards" }} </div>
+                <div class="row row-cols-sm-2 row-cols-md-4 row-cols-xl-6 p-4">
+                    <MyCard :card="card" v-for="card in store.cards" />
                 </div>
             </div>
         </div>
