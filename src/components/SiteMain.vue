@@ -1,11 +1,14 @@
 <script>
 import MyCard from "./MyCard.vue";
+import SelectInput from "./SelectInput.vue";
 import { store } from "../store.js";
 
 export default {
     name: "SiteMain",
     components: {
         MyCard,
+        SelectInput
+
     },
     data() {
         return {
@@ -13,6 +16,15 @@ export default {
 
         }
 
+    },
+    methods: {
+        searchCards() {
+            this.store.cards.forEach(object => {
+                if (object.archetype === 'this.store.searchSelect') {
+                    object.visible = true;
+                }
+            });
+        }
     }
 }
 </script>
@@ -20,11 +32,7 @@ export default {
 <template>
     <main>
         <div class="container-lg">
-            <select class="form-select search_section">
-                <option value="Alien">Alien</option>
-                <option value="Umi">Umi</option>
-                <option value="NobleKnight">Noble Knight</option>
-            </select>
+            <SelectInput @search="searchCards()" />
             <div class="main_section">
                 <div v-if="!store.loaded" class="counter_card text-center">
                     <div class="hourglass2">&#8987</div>
