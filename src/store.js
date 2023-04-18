@@ -8,12 +8,14 @@ export const store = reactive({
     loaded: false,
 
 
+
     fetchCards(url) {
         axios
             .get(url)
             .then(response => {
                 this.cards = response.data.data
                 this.loaded = true
+                this.cards.forEach(element => { element.visible = true });
                 console.log(response.data.data);
 
             })

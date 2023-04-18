@@ -20,8 +20,10 @@ export default {
     methods: {
         searchCards() {
             this.store.cards.forEach(object => {
-                if (object.archetype === 'this.store.searchSelect') {
+                if (object.archetype == this.store.searchSelect) {
                     object.visible = true;
+                } else {
+                    object.visible = false;
                 }
             });
         }
@@ -40,7 +42,7 @@ export default {
                 <div class="counter_card" v-else>{{ "Found " + store.cards.length + " cards" }}
                 </div>
                 <div v-if="store.loaded" class="row row-cols-sm-2 row-cols-md-4 row-cols-xl-6 p-4">
-                    <MyCard :card="card" v-for="card in store.cards" />
+                    <MyCard v-show="card.visible" :card="card" v-for="card in store.cards" />
                 </div>
             </div>
         </div>
