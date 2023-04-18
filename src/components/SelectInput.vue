@@ -22,6 +22,7 @@ export default {
         <option value="Alien">Alien</option>
         <option value="Umi">Umi</option>
         <option value="Noble Knight">Noble Knight</option>
+        <option value="Unchained">Unchained</option>
     </select>
 </template>
 

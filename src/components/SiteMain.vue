@@ -20,7 +20,9 @@ export default {
     methods: {
         searchCards() {
             this.store.cards.forEach(object => {
-                if (object.archetype == this.store.searchSelect) {
+                if (this.store.searchSelect == "") {
+                    object.visible = true;
+                } else if (object.archetype == this.store.searchSelect) {
                     object.visible = true;
                 } else {
                     object.visible = false;

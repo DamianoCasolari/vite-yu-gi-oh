@@ -3,7 +3,7 @@ import { reactive } from 'vue'
 import axios from 'axios'
 export const store = reactive({
     searchSelect: "",
-    API_URL: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=24&offset=0',
+    API_URL: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=192&offset=0',
     cards: null,
     loaded: false,
 
