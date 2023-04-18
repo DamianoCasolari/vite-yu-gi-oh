@@ -6,7 +6,7 @@ export const store = reactive({
     API_URL: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=192&offset=0',
     cards: null,
     loaded: false,
-
+    arrayArchetype: [],
 
 
     fetchCards(url) {
@@ -16,11 +16,17 @@ export const store = reactive({
                 this.cards = response.data.data
                 this.loaded = true
                 this.cards.forEach(element => { element.visible = true });
-                console.log(response.data.data);
+                for (let i = 0; i < this.cards.length; i++) {
+                    const card = this.cards[i];
+                    if (this.arrayArchetype.indexOf(card.archetype) === -1) {
+                        this.arrayArchetype.push(card.archetype);
+                    }
+                }
+                console.log(this.arrayArchetype);
 
             })
             .catch(err => {
-                console.log(err);
+                // console.log(err);
                 console.error(err.message);
             })
     }
